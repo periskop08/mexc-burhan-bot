@@ -1,6 +1,5 @@
-gunicorn
 flask
-ccxt
 requests
-decimal
+ccxt
 python-dotenv
+gunicorn
