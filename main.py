@@ -1,29 +1,21 @@
-# main_mexc.py – MEXC uyumlu Burhan-Bot
+# main_mexc.py – MEXC uyumlu Burhan-Bot (config.py destekli)
 
 import json
 import traceback
 import requests
 from flask import Flask, request, jsonify
-import os
 import decimal
 import time
 import threading
 from queue import Queue
-from dotenv import load_dotenv
 
-load_dotenv()
+from config import MEXC_API_KEY, MEXC_SECRET_KEY, MEXC_API_URL
+from config import TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 
 app = Flask(__name__)
 
 # === Telegram Ayarları ===
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 TELEGRAM_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-
-# === MEXC API Ayarları ===
-MEXC_API_KEY = os.getenv("MEXC_API_KEY")
-MEXC_SECRET_KEY = os.getenv("MEXC_SECRET_KEY")
-MEXC_API_URL = os.getenv("MEXC_API_URL", "https://api.mexc.com")
 
 # === Telegram mesaj kuyruğu ===
 telegram_message_queue = Queue()
