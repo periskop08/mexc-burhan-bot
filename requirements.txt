@@ -1,0 +1,6 @@
+gunicorn
+flask
+ccxt
+requests
+decimal
+python-dotenv
