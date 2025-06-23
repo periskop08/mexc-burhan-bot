@@ -67,6 +67,7 @@ def round_quantity(value):
 def webhook():
     try:
         data = request.json
+        print("🔍 Gelen veri:", data) 
         symbol = data["symbol"].split(":")[-1].replace(".P", "").upper()
         side = data["side"].lower()
         entry = float(data["entry"])
